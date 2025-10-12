@@ -1,0 +1,93 @@
+GET http://localhost:3000/
+ 
+###
+
+GET http://localhost:3000/songs?page=1&limit=4
+
+###
+
+POST http://localhost:3000/songs
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Impvc2hAZ21haWwuY29tIiwidXNlcklkIjo1LCJhcnRpc3RJZCI6MywiaWF0IjoxNzYwMDg0MjIzLCJleHAiOjE3NjAxNzA2MjN9.ysJ-ODqyZJkjSSWhPFqyGjyDPRGGbNS-wAp6OuEZaw0
+Content-Type: application/json
+
+{
+    "title": "Ohh Carribbean",
+    "artists": [3],
+    "releaseDate": "2025-10-10",
+    "duration": "02:30",
+    "lyrics": "Sby, you're my adrenaline. Brought out this other side of me You don't even know Controlling my whole anatomy, oh Fingers are holding you right at the edge You're slipping out of my hands Keeping my secrets all up in my head I'm scared that you won't want me back, oh I dance to every song like it's about ya I drink 'til I kiss someone who looks like ya I wish that I was honest when I had you I shoulda told you that I wanted you for me I dance to every song like it's about ya I drink 'til I kiss someone who looks like ya"
+}
+###Fetch Song by ID
+
+GET http://localhost:3000/songs/3
+
+###Update Song by ID
+
+PUT http://localhost:3000/songs/3
+Content-Type: application/json
+
+{
+    "title": "MalThida 2",
+    "artists": [1],
+    "releaseDate": "2023-01-14",
+    "duration": "02:30",
+    "lyrics": "Sby, you're my adrenaline. Brought out this other side of me You don't even know Controlling my whole anatomy, oh Fingers are holding you right at the edge You're slipping out of my hands Keeping my secrets all up in my head I'm scared that you won't want me back, oh I dance to every song like it's about ya I drink 'til I kiss someone who looks like ya I wish that I was honest when I had you I shoulda told you that I wanted you for me I dance to every song like it's about ya I drink 'til I kiss someone who looks like ya"
+}
+
+###Delete Song by ID
+
+DELETE http://localhost:3000/songs/2
+
+###PlayList
+POST http://localhost:3000/playlists
+Content-Type: application/json
+
+{
+    "name": "Fav List",
+    "songs": [1,10],
+    "user": 1
+}
+
+###SignUp
+POST http://localhost:3000/auth/signup
+Content-Type: application/json
+
+{
+    "firstName": "josh",
+    "lastName": "snow",
+    "email": "josh@gmail.com",
+    "password": "123456"
+}
+
+###Login
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+    "email": "josh@gmail.com",
+    "password": "123456"
+}
+
+###Profile
+GET http://localhost:3000/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Impvc2hAZ21haWwuY29tIiwic3ViIjo1LCJpYXQiOjE3NjAwNzE4NjIsImV4cCI6MTc2MDE1ODI2Mn0.8FasJQOpF8p8kA-7brF8hKWjnpG0qSc-TKc9wVqtgjE
+
+###Enable 2FA
+POST http://localhost:3000/auth/enable-2fa
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Impvc2hAZ21haWwuY29tIiwidXNlcklkIjo1LCJhcnRpc3RJZCI6MywiaWF0IjoxNzYwMTYwNjI3LCJleHAiOjE3NjAyNDcwMjd9.kI2Dvjl7gV0KsqEqJCWuu97itPlFKF7o4QbL1S-8lco
+
+###Disable 2FA
+GET http://localhost:3000/auth/disable-2fa
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Impvc2hAZ21haWwuY29tIiwidXNlcklkIjo1LCJhcnRpc3RJZCI6MywiaWF0IjoxNzYwMTYwNjI3LCJleHAiOjE3NjAyNDcwMjd9.kI2Dvjl7gV0KsqEqJCWuu97itPlFKF7o4QbL1S-8lco
+
+###Verify 2FA
+POST http://localhost:3000/auth/validate-2fa
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Impvc2hAZ21haWwuY29tIiwidXNlcklkIjo1LCJhcnRpc3RJZCI6MywiaWF0IjoxNzYwMTYwNjI3LCJleHAiOjE3NjAyNDcwMjd9.kI2Dvjl7gV0KsqEqJCWuu97itPlFKF7o4QbL1S-8lco
+Content-Type: application/json
+
+{
+    "token": "584545"
+}
+
+### TEST ENV VARIABLES
+GET http://localhost:3000/auth/test
